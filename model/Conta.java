@@ -89,7 +89,9 @@ public class Conta {
         return saldo;
     }
 
-    // Nota: O método setSaldo() foi removido para proteger o saldo.
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
 
     public double getLimite() {
         return limite;
