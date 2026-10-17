@@ -1,4 +1,3 @@
-//Luiz Gustavo
 package model;
 
 public class Receita {
@@ -9,7 +8,7 @@ public class Receita {
       
 
 // Construtor padrão (vazio)
-public Conta() {
+public Receita() {
 }
 
 
