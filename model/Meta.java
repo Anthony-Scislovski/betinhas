@@ -6,11 +6,11 @@ public class Meta {
     private double valorAlvo;
     private double valorPoupado;
 
-    // Construtor padrão   (vazio) 
+    // Construtor padrão (vazio) 
     public Meta() {
     }
 
-    // Construtor com todos os parâmetros - AJUSTADO
+    // Construtor com todos os parâmetros
     public Meta(String objetivo, double valorAlvo, double valorPoupado) {
         this.objetivo = objetivo;
         this.valorAlvo = valorAlvo;
