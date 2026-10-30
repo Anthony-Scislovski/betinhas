@@ -17,7 +17,7 @@ public class Despesa {
         this.status = status;
     }
 
-    // Getters e Setters (já estavam corretos)
+    // Getters e Setters
     public String getDescricao() {
         return descricao;
     }
