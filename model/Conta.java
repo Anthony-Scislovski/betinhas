@@ -19,8 +19,6 @@ public class Conta {
         this.limite = limite;
     }
 
-
-
     // Aumenta o saldo da conta
     public void depositar(double valor) {
         if (valor > 0) {
