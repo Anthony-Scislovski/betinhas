@@ -13,8 +13,8 @@ public class Programa {
         // Criando os objetos
         Conta conta = new Conta(12345, "Alex Silva", 1000.0, 500.0);
         Receita receita = new Receita("Salário Mensal", 2000.0);
-        Despesa despesa = new Despesa("Aluguel do Apê", 1200.0);
-        Meta meta = new Meta("Comprar Computador", 3000.0);
+        Despesa despesa = new Despesa("Aluguel do Apê", 1200.0,"Para pagar");
+        Meta meta = new Meta("Comprar Computador", 8000.0, 1500.0);
 
         int opcao;
 
@@ -31,9 +31,7 @@ public class Programa {
         opcao = entrada.nextInt();
 
         if (opcao == 1) {
-            conta.setSaldo(conta.getSaldo() + receita.getValor());
-
-            System.out.println("Salário adicionado com sucesso!");
+            conta.depositar(receita.getValor());
             System.out.println("Saldo Atual: R$ " + conta.getSaldo());
         } else {
             System.out.println("Depósito cancelado.");
@@ -48,19 +46,9 @@ public class Programa {
         opcao = entrada.nextInt();
 
         if (opcao == 1) {
-
-            if (conta.getSaldo() + conta.getLimite() >= despesa.getValor()) {
-
-                conta.setSaldo(conta.getSaldo() - despesa.getValor());
-                despesa.setStatus("Paga");
-
-                System.out.println("Despesa paga com sucesso!");
+            if (conta.pagarDespesa(despesa)) {
                 System.out.println("Saldo Atual: R$ " + conta.getSaldo());
-
-            } else {
-                System.out.println("Saldo insuficiente.");
             }
-
         } else {
             System.out.println("Pagamento cancelado.");
         }
@@ -74,43 +62,31 @@ public class Programa {
         opcao = entrada.nextInt();
 
         if (opcao == 1) {
-
-            if (conta.getSaldo() >= 200) {
-
-                conta.setSaldo(conta.getSaldo() - 200);
-                meta.setValorPoupado(meta.getValorPoupado() + 200);
-
-                System.out.println("Dinheiro guardado na meta!");
-
-            } else {
-                System.out.println("Saldo insuficiente para poupar.");
-            }
-
+            conta.poupar(meta, 200.0);
         } else {
             System.out.println("Operação cancelada.");
         }
 
         // Relatório Final
-        System.out.println("\n========================================");
-        System.out.println("         RELATÓRIO FINANCEIRO");
-        System.out.println("========================================");
+        System.out.println("=========================================================================");
+        System.out.println("                         RELATÓRIO FINANCEIRO");
+        System.out.println("=========================================================================");
 
-        System.out.println("Conta: " + conta.getNumero()
-                + " | Cliente: " + conta.getCliente());
+        System.out.println("Conta: " + conta.getNumero()                                     
+                + " | Cliente: " + conta.getCliente()); 
 
         System.out.println("Saldo Final: R$ " + conta.getSaldo()
-                + " | Limite: R$ " + conta.getLimite());
+                + " | Limite: R$ " + conta.getLimite()); 
 
         System.out.println("Situação do " + despesa.getDescricao()
-                + ": " + despesa.getStatus());
+                + ": " + despesa.getStatus()); 
 
         System.out.println("Meta [" + meta.getObjetivo() + "]: R$ "
                 + meta.getValorPoupado()
                 + " poupados de R$ "
                 + meta.getValorAlvo());
 
-        System.out.println("========================================");
-
+        System.out.println("=========================================================================");        
         entrada.close();
     }
 }
