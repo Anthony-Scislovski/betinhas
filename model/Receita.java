@@ -2,43 +2,34 @@ package model;
 
 public class Receita {
     
-    //atributos
+    // Atributos
     private String origem;
     private double valor;
       
+    // Construtor padrão (vazio)
+    public Receita() {
+    }
 
-// Construtor padrão (vazio)
-public Receita() {
-}
-
-
-
-    //construtor
+    // Construtor com parâmetros
     public Receita(String origem, double valor) {
-        
         this.origem = origem;
         this.valor = valor;
-    }
-    //metodos
-    public String getOrigem() {
-        
-        return this.origem;
-        
-    }
-    public void setOrigem(String origem) {
-        
-        this.origem = origem;
-        
-    }
-    public double getValor() {
-        
-        return this.valor;
-        
-    }
-    public void setValor(double valor) {
-        
-        this.valor = valor;
-        
     }
     
+    // Getters e Setters
+    public String getOrigem() {
+        return this.origem;
+    }
+    
+    public void setOrigem(String origem) {
+        this.origem = origem;
+    }
+    
+    public double getValor() {
+        return this.valor;
+    }
+    
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 }
